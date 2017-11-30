@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch } from 'react-router-dom'
-import Header from './components/Header'
+import { BrowserRouter } from 'react-router-dom'
 
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
@@ -9,17 +8,14 @@ import { Provider } from 'react-redux'
 
 import { renderRoutes } from 'react-router-config'
 import createHistory from 'history/createBrowserHistory'
-import { Route } from 'react-router'
 import routes from './Routes/Routes'
 
-import ConnectedRouter, {  routerReducer, routerMiddleware, push } from 'react-router-redux'
+import {  routerReducer, routerMiddleware } from 'react-router-redux'
 
 import reducers from './reducers' // Or wherever you keep your reducers
 
 
 import './index.css';
-import App from './App';
-import About from './components/About/About'
 import registerServiceWorker from './registerServiceWorker';
 
 
@@ -45,10 +41,9 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter history={history}>
+        <BrowserRouter>
             {renderRoutes(routes)}
         </BrowserRouter>
-        {/*<App/>*/}
     </Provider>
     , document.getElementById('root'));
 registerServiceWorker();
